@@ -1,0 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<div class="footer">
+    <a href="http://thiago.network" target="_blank" style="text-decoration: none">Criado por Thiago Romão Barin</a>
+</div>
+</body>
+</html>

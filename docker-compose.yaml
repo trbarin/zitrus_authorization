@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:8.0.27
+    container_name: zitrus_db
+    environment:
+      MYSQL_ROOT_PASSWORD: zitrus
+      MYSQL_DATABASE: authorization
+    ports:
+      - 3306:3306
+    volumes:
+      - ./authorizationDb:/var/lib/mysql
+
+  app:
+    image: maven:3.8.4-openjdk-11
+    depends_on:
+      - db
+    entrypoint: mvn -f /home/app spring-boot:run
+    restart: on-failure
+    container_name: zitrus_app
+    ports:
+      - 8080:8080
+    volumes:
+      - ./authorizationApp:/home/app
