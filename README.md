@@ -10,11 +10,10 @@ Projeto para prova da empresa Zitrus.
 * Spring Boot (Web, JPA, Security)
 * Liquibase
 * JUnit
-* H2
 
 ## Inicialização do sistema
 ### Com utilização do Docker
-Para inicializar o sistema utilizando Docker bastar digitar o comando abaixo, estando ma pasta _zitrus_:
+Para inicializar o sistema utilizando Docker bastar digitar o comando abaixo:
 
 > docker-compose up --build
 
@@ -22,25 +21,25 @@ A rotina fará o seguinte processo:
 1. carregará as imagens necessárias (Mysql e Maven)
 1. inicializará o banco de dados Mysql
 1. fará o download das dependências do projeto
-1. compilará o projeto
 1. inicializará o servidor
 
 ### Sem utilização do Docker
-Para inicializar o sistema sem utilizar o Docker, será necessário que a máquina tenha o banco de dados Mysql instaldo, ou outra qualquer máquina na rede, e esteja configurado com as informações abaixo.
+Para inicializar o sistema sem utilizar o Docker, será necessário que a máquina (local ou remota) tenha o banco de dados Mysql instaldo e esteja configurado com as informações abaixo.
 
 #### Configuração do Mysql
-1. porta: 3306
-1. database: authorization
-1. senha do usuário root: zitrus
-1. no arquivo application.properties deve-se ajustar as linhas 11, 12 e 13 apontando para a instância do MySql desejada.
+1. IP: Definir conforme o IP da máquina que estará rodando a instância
+1. porta: Definir conforme a porta do Mysql da máquina que estará rodando a instância
+1. database: Definir conforme no nome do banco da instância
+1. senha do usuário root: Definir conforme a senha do banco da instância
+1. **Estas alterações devem ser feitas arquivo application.properties nas linhas 11, 12 e 13**
 
 #### Inicialização com o Maven
-Uma vez que o banco de dados esteja operacional, poderá então ser inicializada a aplicação com o comando abaixo, estando na pastas _authorizationApp_
+Uma vez que o banco de dados esteja operacional e as configurações alteradas no arquivo, poderá então ser inicializada a aplicação com o comando abaixo, estando na pastas _authorizationApp_
 
-> mvn spring-boot run
+> mvn spring-boot:run
 
 ## Acessando o sistema
-Quando o sistemas estiver em execução, seja via Docker ou não, o acesso ao sistema se faz pelo acesso ao link abaixo por um navegador.
+Quando o sistemas estiver em execução, seja via Docker ou não, o acesso ao sistema se faz pelo acesso ao link abaixo por um navegador. Caso for acessar de outra máquina que não a que está rodando o aplicativo, subistituir o localhost pelo IP da máquina e garantir que a máquina tenha acesso
 
 > localhost:8080
 
